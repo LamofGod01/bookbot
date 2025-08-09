@@ -8,11 +8,10 @@ from stats import character_dictionaries
 
 def main():
         import sys
-        try:
-            book_location = sys.argv[1]
-        except Exception as e:
-               print("Usage: python3 main.py <path_to_book>")
-               sys.exit(1)
+        if len(sys.argv) != 2:
+             print("Usage: python3 main.py <path_to_book>")
+             sys.exit(1)
+        book_location = sys.argv[1]
         book_text = get_book_text(book_location)
         word_count = word_counter(book_text)
         letter_counts = character_dictionaries(letter_counter_2(book_text))
